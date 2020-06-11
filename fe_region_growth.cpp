@@ -65,7 +65,7 @@ void regionGrowth(short arr_in_img[BREADTH][LENGTH], short arr_out_img[BREADTH +
 	cen<<"ID, x_cen, y_cen\n";
 	for(int k = 0; k < star_num; k++)
 	{
-		if((num_pixels[k] < STAR_MAX_PIXEL) & (num_pixels[k] >= STAR_MIN_PIXEL))
+		if((num_pixels[k] <= STAR_MAX_PIXEL) & (num_pixels[k] > STAR_MIN_PIXEL))
 		{
 			valid_stars++;
 			centroids_st[k][0] = valid_stars;
