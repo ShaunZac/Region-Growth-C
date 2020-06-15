@@ -2,6 +2,7 @@
 
 short arr_in_img[BREADTH][LENGTH] = {{0}};
 short arr_out_img[BREADTH + 2][LENGTH + 2];
+char datafile[25], cenfile[25];
 
 void getData(short arr_out_img[BREADTH + 2][LENGTH + 2], unsigned short i, unsigned short j, unsigned short star_num, unsigned short x_sum[], unsigned short y_sum[], unsigned short pixel_sum[], unsigned short num_pixels[])
 {
@@ -51,7 +52,6 @@ void regionGrowth(short arr_in_img[BREADTH][LENGTH], short arr_out_img[BREADTH +
 				star_num++;
 			}
 	ofstream out;
-	char datafile[25];
 	sprintf(datafile, "Results/centroid data %i.csv", img_num);
 	out.open(datafile);
 	out<<"x_sum, y_sum, pixel_sum, num_pixels\n";
@@ -63,7 +63,6 @@ void regionGrowth(short arr_in_img[BREADTH][LENGTH], short arr_out_img[BREADTH +
 	unsigned short valid_stars = 0;
 	
 	ofstream cen;
-	char cenfile[25];
 	sprintf(cenfile, "Results/centroids %i.csv", img_num);
 	cen.open(cenfile);
 	cen<<"ID, x_cen, y_cen\n";
@@ -102,6 +101,6 @@ int main()
 
 		auto stop = high_resolution_clock::now();
 		auto duration = duration_cast<milliseconds>(stop - start);
-		cout<<"Time taken: " <<duration.count()<<" ms";
+		cout<<"Time taken: " <<duration.count()<<" ms"<<endl;
 	}
 }
